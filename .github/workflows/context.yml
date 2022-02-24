@@ -1,6 +1,6 @@
 name: Context
 
-on: pull_request
+on: push
 
 jobs:
   functions:

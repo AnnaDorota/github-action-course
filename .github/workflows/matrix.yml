@@ -4,6 +4,10 @@ on: push
 
 jobs:
   node:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        node_version: [14,15]
     runs-on: ubuntu-latest
     steps:
       - name: node v1
@@ -11,7 +15,7 @@ jobs:
           node -v
       - uses: actions/setup-node@v2
         with:
-         node-version: '14'
+         node-version: '${{ matrix.node_version }}'
       - name: node v2
         run:
           node -v

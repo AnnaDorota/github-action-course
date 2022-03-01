@@ -8,6 +8,9 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
         node_version: [14,15]
+        exclude: 
+          - os: ubuntu-latest
+            node_version: 15
     runs-on: ubuntu-latest
     steps:
       - name: node v1

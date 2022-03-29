@@ -3,7 +3,7 @@ name: slack
 on: push
 
 jobs:
- slack-test:
+ slack-test-cy:
    runs-on: ubuntu-latest
    steps:
      - name: Post to a Slack channel

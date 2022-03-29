@@ -18,5 +18,11 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - name: Slack Notification
-        run: curl -X POST -H 'Content-type: application/json' --data '{"text":"Cypress tests"}' ${{secrets.SLACK_WEBHOOK}}
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          channel-id: 'general'
+            slack-message: "cy"
+        env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK }}

@@ -9,7 +9,7 @@ describe('example to-do app', () => {
 
   it('check secrets', () => {
     cy.get('#email')
-      .type(userEmail)
-      .should('have.value', userEmail)
+      .type(Cypress.env('USER_EMAIL'))
+      .should('have.value', Cypress.env('USER_EMAIL'))
     })
 })

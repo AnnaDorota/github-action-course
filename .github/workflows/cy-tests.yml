@@ -3,6 +3,8 @@ name: Cypress Tests
 on: [push]
 
 jobs:
+  env:
+    USER_EMAIL: ${{secrets.USER_EMAIL}}
   cypress-tests:
     runs-on: ubuntu-latest
     steps:
@@ -12,8 +14,6 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm run cy:open
-        env:
-          USER_EMAIL: ${{secrets.USER_EMAIL}}
       - name: Artifacts
         uses: actions/upload-artifact@v2
         if: failure()

@@ -8,7 +8,7 @@ describe('example to-do app', () => {
   })
 
   it('check secrets', () => {
-    cy.get('name@example.com')
+    cy.get('#email')
       .type(userEmail)
       .should('have.value', userEmail)
     })

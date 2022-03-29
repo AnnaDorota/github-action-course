@@ -1,1 +1,3 @@
-{}
+{
+  "user_Email":"${{secrets.WF_ENV}}"
+}

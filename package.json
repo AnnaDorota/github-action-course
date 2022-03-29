@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:open": "./node_modules/.bin/cypress open"
+    "cy:open":"cypress open --config-file=cypress.json USER_EMAIL=$USER_EMAIL"
   },
   "repository": {
     "type": "git",

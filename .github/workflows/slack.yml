@@ -12,5 +12,18 @@ jobs:
        with:
         channel-id: '#general'
         slack-message: "Cy tests"
+        payload: |
+          {
+            "text": "GitHub Action Cypress tests result: ${{ job.status }}\n${{ github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                "type": "mrkdwn",
+                "text": "GitHub Action Cy tests result: ${{ job.status }}\n${{ github.event.head_commit.url }}"
+              }
+            }
+           ]
+          }
 env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

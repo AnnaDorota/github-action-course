@@ -24,6 +24,7 @@ jobs:
       - name: Slack message success
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
+        if: failure()
         with:
          channel-id: '#general'
          slack-message: "Cy tests"

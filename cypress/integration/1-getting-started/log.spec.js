@@ -4,7 +4,7 @@ import{
 
 /*describe('example to-do app', () => {
   beforeEach(() => {
-    cy.visit('https://accounts.labs.livechat.com')
+    cy.visit('https://accounts.livechat.com')
   })
 
   it('check secrets', () => {

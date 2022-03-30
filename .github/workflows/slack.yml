@@ -14,13 +14,13 @@ jobs:
         slack-message: "Cy tests"
         payload: |
           {
-            "text": "GitHub Action Cypress tests result: ${{ job.status }}\n pushed by: ${{github.event.actor.display_login}}\n${{github.event.head_commit.url }}",
+            "text": "GitHub Action Cypress tests result: ${{ job.status }}\n pushed by: ${{github.event.push.actor.display_login}}\n${{github.event.head_commit.url }}",
             "blocks": [
               {
                 "type": "section",
                 "text": {
                 "type": "mrkdwn",
-                "text": "GitHub Action Cy tests result: ${{ job.status }}\n pushed by: ${{github.event.actor.display_login}}\n${{github.event.head_commit.url }}"
+                "text": "GitHub Action Cy tests result: ${{ job.status }}\n pushed by: ${{github.event.push.actor.display_login}}\n${{github.event.head_commit.url }}"
               }
             }
            ]

@@ -2,12 +2,34 @@ name: slack
 
 on: push
 
+env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
 jobs:
  slack-test:
    runs-on: ubuntu-latest
    steps:
      - name: Post to a Slack channel
        id: slack
+       uses: slackapi/slack-github-action@v1.18.0
+       with:
+        channel-id: '#general'
+        slack-message: "Cy tests"
+        payload: |
+          {
+            "text": "GitHub Action Cypress tests result: ${{ job.status }}\n pushed by: ${{actor}}\n${{github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                "type": "mrkdwn",
+                "text": "GitHub Action Cy tests result: ${{ job.status }}\n pushed by: ${{actor}}\n${{github.event.head_commit.url }}"
+              }
+            }
+           ]
+          }
+     - name: Workflow fails
+       if: failure
        uses: slackapi/slack-github-action@v1.18.0
        with:
         channel-id: '#general'
@@ -25,5 +47,3 @@ jobs:
             }
            ]
           }
-env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

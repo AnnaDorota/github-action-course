@@ -2,7 +2,7 @@ import{
   userEmail
 } from '../../fixtures/example.json'
 
-/*describe('example to-do app', () => {
+describe('example to-do app', () => {
   beforeEach(() => {
     cy.visit('https://accounts.livechat.com')
   })
@@ -12,4 +12,4 @@ import{
       .type(Cypress.env('USER_EMAIL'))
       .should('have.value', Cypress.env('USER_EMAIL'))
     })
-})*/
+})

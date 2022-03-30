@@ -10,7 +10,7 @@ describe('example to-do app', () => {
   })
 
   it.only('displays two todo items by default', () => {
-    cy.get('.todo-list li').should('have.length', 2) // BLAAAAAAAAD
+    cy.get('.todo-list li2').should('have.length', 2) // BLAAAAAAAAD
 
     // We can go even further and check that the default todos each contain
     // the correct text. We use the `first` and `last` functions

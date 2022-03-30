@@ -29,7 +29,7 @@ jobs:
            ]
           }
      - name: Workflow fails
-       if: faliure
+       if: faliure && github.event_name = "push"
        uses: slackapi/slack-github-action@v1.18.0
        with:
         channel-id: '#general'

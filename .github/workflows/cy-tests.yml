@@ -21,10 +21,29 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - name: Slack message success
+      - name: Slack fails
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
         if: failure()
+        with:
+         channel-id: '#general'
+         slack-message: "Cy tests"
+         payload: |
+          {
+            "text": "GitHub Action Cypress tests result: ${{ job.status }}\n${{github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                "type": "mrkdwn",
+                "text": "GitHub Action Cy tests result: ${{ job.status }}\n${{github.event.head_commit.url }}"
+              }
+            }
+           ]
+          }
+      - name: Slack success
+        uses: slackapi/slack-github-action@v1.18.0
+        if: success()
         with:
          channel-id: '#general'
          slack-message: "Cy tests"
